@@ -20,18 +20,18 @@ const Index = () => {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Rural women learning" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 gradient-hero" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         <div className="relative container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-2xl text-primary-foreground">
+          <div className="max-w-2xl text-white">
             <h1 className="text-3xl md:text-5xl font-bold mb-2 animate-fade-in-up">
               {t("Empowering Rural Women", "ग्रामीण महिलाओं को सशक्त बनाना")}
             </h1>
-            <p className="text-xl md:text-2xl font-medium mb-2 text-primary-foreground/90" style={{ animationDelay: "0.1s" }}>
+            <p className="text-xl md:text-2xl font-medium mb-2 text-white/90" style={{ animationDelay: "0.1s" }}>
               {t("Through Financial Literacy", "वित्तीय साक्षरता के माध्यम से")}
             </p>
-            <div className="w-16 h-1 bg-primary-foreground/60 rounded mb-4" />
-            <p className="text-lg font-hindi text-primary-foreground/80 mb-8">
+            <div className="w-16 h-1 bg-white/60 rounded mb-4" />
+            <p className="text-lg font-hindi text-white/80 mb-8">
               {t("सशक्त महिलाएं - सशक्त समाज", "सशक्त महिलाएं - सशक्त समाज")}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -55,7 +55,7 @@ const Index = () => {
               </Link>
               <Link
                 to="/chatbot"
-                className="px-6 py-3 bg-background/20 text-primary-foreground border border-primary-foreground/30 rounded-lg font-semibold text-sm hover:bg-background/30 transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-white/20 text-white border border-white/30 rounded-lg font-semibold text-sm hover:bg-white/30 transition-all flex items-center gap-2"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t("Chat with Sakhi Assistant", "सखी असिस्टेंट से बात करें")}
@@ -66,13 +66,13 @@ const Index = () => {
       </section>
 
       {/* Feature Cards */}
-      <section className="container mx-auto px-4 -mt-8 relative z-10">
+      <section className="container mx-auto px-4 py-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {featureCards.map((card, i) => (
             <Link
               key={i}
               to={card.link}
-              className={`${card.color} rounded-xl p-5 text-center hover:shadow-lg transition-all hover:-translate-y-1 group`}
+              className={`${card.color} rounded-xl p-5 text-center hover:shadow-lg transition-all hover:-translate-y-1 group bg-white shadow-md`}
             >
               <card.icon className="w-10 h-10 mx-auto mb-3 text-primary" />
               <p className="font-semibold text-sm text-foreground">{t(card.labelEn, card.labelHi)}</p>

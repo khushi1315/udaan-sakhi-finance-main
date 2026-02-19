@@ -1,5 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import successImage from "@/assets/success-story-woman.jpg";
+import sunitaImage from "@/assets/sunita.jpg";
+import kamlaImage from "@/assets/kamla.jpg";
+import meeraImage from "@/assets/meera.jpg";
 
 const stories = [
   {
@@ -7,6 +9,7 @@ const stories = [
     nameHi: "सुनीता देवी",
     villageEn: "Madhubani, Bihar",
     villageHi: "मधुबनी, बिहार",
+    image: sunitaImage,
     beforeEn: "Had no bank account, saved money at home under the mattress.",
     beforeHi: "कोई बैंक खाता नहीं था, गद्दे के नीचे घर पर पैसे बचाती थीं।",
     afterEn: "Opened a Jan Dhan account, started saving ₹500/month, and now runs a tailoring business earning ₹8,000/month.",
@@ -19,6 +22,7 @@ const stories = [
     nameHi: "कमला बाई",
     villageEn: "Rajgarh, Madhya Pradesh",
     villageHi: "राजगढ़, मध्य प्रदेश",
+    image: kamlaImage,
     beforeEn: "Took loans from local moneylenders at 5% monthly interest.",
     beforeHi: "स्थानीय साहूकारों से 5% मासिक ब्याज पर ऋण लेती थीं।",
     afterEn: "Joined an SHG, got a Mudra Loan at low interest, and started a grocery shop in her village.",
@@ -31,6 +35,7 @@ const stories = [
     nameHi: "मीरा कुमारी",
     villageEn: "Vaishali, Bihar",
     villageHi: "वैशाली, बिहार",
+    image: meeraImage,
     beforeEn: "Never used a mobile phone for transactions, afraid of digital fraud.",
     beforeHi: "लेनदेन के लिए कभी मोबाइल फोन का उपयोग नहीं किया, डिजिटल धोखाधड़ी से डरती थीं।",
     afterEn: "Now uses UPI confidently, teaches other women in her village about safe digital payments.",
@@ -56,7 +61,7 @@ const StoriesPage = () => {
         {stories.map((story, i) => (
           <div key={i} className="bg-card rounded-xl overflow-hidden shadow-sm border border-border md:flex">
             <div className="md:w-1/3">
-              <img src={successImage} alt={t(story.nameEn, story.nameHi)} className="w-full h-64 md:h-full object-cover" />
+              <img src={story.image} alt={t(story.nameEn, story.nameHi)} className="w-full h-64 md:h-full object-cover" />
             </div>
             <div className="p-6 md:w-2/3">
               <h3 className="text-xl font-bold text-foreground">{t(story.nameEn, story.nameHi)}</h3>
