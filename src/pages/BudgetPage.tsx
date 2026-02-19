@@ -15,6 +15,7 @@ const BudgetPage = () => {
     const hh = parseFloat(household) || 0;
     const edu = parseFloat(education) || 0;
     const savings = inc - hh - edu;
+
     setResult({
       savings,
       data: [
@@ -38,6 +39,7 @@ const BudgetPage = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-8">
+          {/* Input Section */}
           <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
             <h2 className="text-lg font-semibold text-foreground mb-4">{t("Enter Your Details", "अपना विवरण दर्ज करें")}</h2>
             <div className="space-y-4">
@@ -67,6 +69,7 @@ const BudgetPage = () => {
             </div>
           </div>
 
+          {/* Result Section */}
           <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
             <h2 className="text-lg font-semibold text-foreground mb-4">{t("Your Budget Summary", "आपका बजट सारांश")}</h2>
             {result ? (

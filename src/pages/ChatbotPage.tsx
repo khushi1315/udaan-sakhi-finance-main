@@ -14,29 +14,39 @@ const ChatbotPage = () => {
   setMessage("");
   setLoading(true);
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  try {
+    const {
+      data: sessionData,
+      error: sessionError,
+    } = await supabase.auth.getSession();
 
-  const { data, error } = await supabase.functions.invoke("chatbot", {
-    body: { message: userMessage },
-    headers: {
-      Authorization: `Bearer ${session?.access_token}`,
-    },
-  });
+    if (sessionError) throw sessionError;
 
-  if (error) {
-    console.error(error);
+    const { data, error } = await supabase.functions.invoke("chatbot", {
+      body: JSON.stringify({ message: userMessage }), // <-- stringify here
+      headers: {
+        Authorization: `Bearer ${sessionData?.session?.access_token}`,
+      },
+    });
+
+    if (error) throw error;
+
+    // Parse the JSON response
+    const parsed = typeof data === "string" ? JSON.parse(data) : data;
+
+    setChat((prev) => [
+      ...prev,
+      { role: "assistant", text: parsed.reply },
+    ]);
+  } catch (err: any) {
+    console.error("Chatbot error:", err);
+    setChat((prev) => [
+      ...prev,
+      { role: "assistant", text: "Server error occurred." },
+    ]);
+  } finally {
     setLoading(false);
-    return;
   }
-
-  setChat((prev) => [
-    ...prev,
-    { role: "assistant", text: data.reply },
-  ]);
-
-  setLoading(false);
 };
 
   return (
