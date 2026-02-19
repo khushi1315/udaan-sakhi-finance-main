@@ -20,7 +20,7 @@ const Index = () => {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Rural women learning" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-pink-300/60" />
         </div>
         <div className="relative container mx-auto px-4 py-20 md:py-32">
           <div className="max-w-2xl text-white">
