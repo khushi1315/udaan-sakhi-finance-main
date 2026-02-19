@@ -15,16 +15,15 @@ const Navbar = ({ session }: NavbarProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
- const navLinks = [
-  { to: "/", label: t("Home", "होम") },
-  { to: "/learn", label: t("Learn", "सीखें") },
-  { to: "/schemes", label: t("Schemes", "योजनाएं") },
-  { to: "/budget", label: t("Budget Tool", "बजट टूल") },
-  { to: "/stories", label: t("Success Stories", "सफलता की कहानियां") },
-  { to: "/community", label: t("Community", "समुदाय") },
-  { to: "/chatbot", label: t("Chatbot", "चैटबॉट") },  // 👈 ADD THIS LINE
-];
-
+  const navLinks = [
+    { to: "/", label: t("Home", "होम") },
+    { to: "/learn", label: t("Learn", "सीखें") },
+    { to: "/schemes", label: t("Schemes", "योजनाएं") },
+    { to: "/budget", label: t("Budget Tool", "बजट टूल") },
+    { to: "/stories", label: t("Success Stories", "सफलता की कहानियां") },
+    { to: "/community", label: t("Community", "समुदाय") },
+    { to: "/chatbot", label: t("Chatbot", "चैटबॉट") }, // 👈 ADD THIS LINE
+  ];
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
